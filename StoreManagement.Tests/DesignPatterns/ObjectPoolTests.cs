@@ -20,7 +20,7 @@ namespace StoreManagement.Tests.DesignPatterns
             pool = DeskPool.Instance;
         }
 
-        [Test, Category("ObjectPool")]
+        [Test, Category("ObjectPool"), Order(1)]
         public void ObjectPoolEmpty()
         {
             Assert.AreEqual(0, pool.Count());
@@ -35,6 +35,7 @@ namespace StoreManagement.Tests.DesignPatterns
             Assert.AreEqual(1, pool.Count());
             Assert.IsFalse(e.Desk.Available);
             Assert.IsFalse(desksAvailable);
+            pool.Release(e.Desk);
         }
 
         [Test, Category("ObjectPool")]
@@ -60,6 +61,7 @@ namespace StoreManagement.Tests.DesignPatterns
             Assert.AreEqual(1, pool.Count());
             Assert.IsNull(e.Desk);
             Assert.IsNotNull(e1.Desk);
+            pool.Release(e1.Desk);
         }
     }
 }
