@@ -1,0 +1,36 @@
+﻿@model System.Data.DataTable
+@{
+    ViewBag.Title = "Products By Supplier";
+}
+
+<h2>Products By Supplier report</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Supplier
+            </th>
+            <th>
+                Products
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (System.Data.DataRow row in Model.Rows)
+        {
+            <tr>
+                @foreach (var cell in row.ItemArray)
+                {
+                    <td>
+                        @cell.ToString()
+                    </td>
+                }
+            </tr>
+
+        }
+    </tbody>
+</table>
+
+<div>
+    @Html.ActionLink("Back to Reports page", "Index")
+</div>
