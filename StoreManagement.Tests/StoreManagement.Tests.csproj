@@ -105,6 +105,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Dal\ProductRepositoryTests.cs" />
     <Compile Include="Dal\UserRepositoryTests.cs" />
     <Compile Include="DesignPatterns\BridgePatternTest.cs" />
     <Compile Include="DesignPatterns\BuilderPatternTests.cs" />
