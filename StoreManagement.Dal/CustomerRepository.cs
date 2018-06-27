@@ -65,7 +65,7 @@ namespace StoreManagement.Dal
 
         public DataTable ExecuteQuery(string query)
         {
-            throw new NotSupportedException();
+            throw new NotSupportedException("Query executions not supported.");
         }
 
         public Customer Get(Expression<Func<Customer, bool>> condition)

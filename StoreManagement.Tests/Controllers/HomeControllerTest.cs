@@ -9,7 +9,7 @@ using NUnit.Framework;
 
 namespace StoreManagement.Tests.Controllers
 {
-    [TestFixture]
+    [TestFixture, Category("HomeController")]
     public class HomeControllerTest
     {
         [Test]

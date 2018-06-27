@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace StoreManagement.Tests.Dal
 {
-    [TestFixture]
+    [TestFixture, Category("SupplierRepository")]
     class SupplierRepositoryTests
     {
         private Mock<ISupplierRepository> _mockSupRepository;
@@ -79,6 +79,7 @@ namespace StoreManagement.Tests.Dal
                 }
                 )
                 .Verifiable();
+            _mockSupRepository.Setup(mr => mr.ExecuteQuery(It.IsAny<string>())).Throws(new NotSupportedException("Query executions not supported."));
 
             this.MockSupRepository = _mockSupRepository.Object;
         }
@@ -96,6 +97,14 @@ namespace StoreManagement.Tests.Dal
 
             Assert.IsNotNull(usersTest);
             Assert.AreEqual(3, usersTest.Count);
+        }
+
+        [Test]
+        public void QueryExecutionThrowsException()
+        {
+            string messageExc = "Query executions not supported.";
+            var ex = Assert.Throws<NotSupportedException>(() => MockSupRepository.ExecuteQuery(""));
+            Assert.That(ex.Message, Is.EqualTo(messageExc));
         }
 
         [Test]

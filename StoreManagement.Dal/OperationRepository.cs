@@ -31,17 +31,17 @@ namespace StoreManagement.Dal
 
         public long Count()
         {
-            throw new NotSupportedException();
+            return _Context.Operations.LongCount();
         }
 
         public void Create(Operation add)
         {
-            throw new NotSupportedException();
+            throw new NotSupportedException("Operation not supported.");
         }
 
         public void Delete(Operation delete)
         {
-            throw new NotSupportedException();
+            throw new NotSupportedException("Operation not supported.");
         }
 
         public DataTable ExecuteQuery(string query)
@@ -71,7 +71,7 @@ namespace StoreManagement.Dal
 
         public Operation Get(Expression<Func<Operation, bool>> condition)
         {
-            throw new NotSupportedException();
+            throw new NotSupportedException("Operation not supported.");
         }
 
         public IList<Operation> GetAll()
@@ -81,7 +81,7 @@ namespace StoreManagement.Dal
 
         public void Update(Operation update)
         {
-            throw new NotSupportedException();
+            throw new NotSupportedException("Operation not supported.");
         }
     }
 }

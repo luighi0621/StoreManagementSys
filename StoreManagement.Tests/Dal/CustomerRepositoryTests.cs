@@ -77,7 +77,7 @@ namespace StoreManagement.Tests.Dal
                 }
                 )
                 .Verifiable();
-
+            _mockCustomerRepository.Setup(mr => mr.ExecuteQuery(It.IsAny<string>())).Throws(new NotSupportedException("Query executions not supported."));
             this.MockCustomerRepository = _mockCustomerRepository.Object;
         }
 
@@ -115,6 +115,14 @@ namespace StoreManagement.Tests.Dal
             Assert.IsNull(deleted);
             Assert.IsNotNull(list);
             Assert.AreEqual(2, list.Count);
+        }
+
+        [Test]
+        public void QueryExecutionThrowsException()
+        {
+            string messageExc = "Query executions not supported.";
+            var ex = Assert.Throws<NotSupportedException>(() => MockCustomerRepository.ExecuteQuery(""));
+            Assert.That(ex.Message, Is.EqualTo(messageExc));
         }
 
         [Test]
