@@ -19,7 +19,7 @@ namespace StoreManagement.Tests.Dal
         [SetUp]
         public void SetUp()
         {
-            IList<Product> users = new List<Product>()
+            IList<Product> products = new List<Product>()
             {
                 new Product()
                 {
@@ -41,14 +41,14 @@ namespace StoreManagement.Tests.Dal
                 }
             };
             _mockProdRepository = new Mock<IProductRepository>();
-            _mockProdRepository.Setup(mr => mr.GetAll()).Returns(users);
+            _mockProdRepository.Setup(mr => mr.GetAll()).Returns(products);
 
-            _mockProdRepository.Setup(mr => mr.Count()).Returns(users.Count);
+            _mockProdRepository.Setup(mr => mr.Count()).Returns(products.Count);
 
             _mockProdRepository.Setup(mr => mr.Get(It.IsAny<Expression<Func<Product, bool>>>())).Returns(
                 (Expression<Func<Product, bool>> expression) =>
                 {
-                    var userQuery = users.Where(expression.Compile()).FirstOrDefault();
+                    var userQuery = products.Where(expression.Compile()).FirstOrDefault();
                     return userQuery;
                 }
                 );
@@ -56,23 +56,23 @@ namespace StoreManagement.Tests.Dal
                 .Callback(
                 (Product us) =>
                 {
-                    users.Remove(us);
+                    products.Remove(us);
                 }
                 ).Verifiable();
             _mockProdRepository.Setup(mr => mr.Create(It.IsAny<Product>()))
                 .Callback(
                 (Product us) => {
-                    us.Id = users.Count + 1;
-                    users.Add(us);
+                    us.Id = products.Count + 1;
+                    products.Add(us);
                 }
                 );
             _mockProdRepository.Setup(mr => mr.Update(It.IsAny<Product>()))
                 .Callback(
                 (Product us) => {
-                    int index = users.IndexOf(us);
+                    int index = products.IndexOf(us);
                     if (index != -1)
                     {
-                        users[index] = us;
+                        products[index] = us;
                     }
                 }
                 )
@@ -88,7 +88,7 @@ namespace StoreManagement.Tests.Dal
         }
 
         [Test]
-        public void ReturnAllUsers()
+        public void ReturnAllProducts()
         {
             IList<Product> usersTest = this.MockProdRepository.GetAll();
 
@@ -97,7 +97,7 @@ namespace StoreManagement.Tests.Dal
         }
 
         [Test]
-        public void ReturnAUserDependingQuery()
+        public void ReturnAProdDependingQuery()
         {
             Product prodTest = this.MockProdRepository.Get(u => u.Id == 3);
             Assert.IsNotNull(prodTest);
@@ -106,7 +106,7 @@ namespace StoreManagement.Tests.Dal
         }
 
         [Test]
-        public void DeleteUserFromRepository()
+        public void DeleteProdFromRepository()
         {
             Product toDelete = MockProdRepository.Get(u => u.Id == 3);
             MockProdRepository.Delete(toDelete);
