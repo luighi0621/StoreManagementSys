@@ -1,4 +1,5 @@
 ﻿<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\NUnit.3.10.1\build\NUnit.props" Condition="Exists('..\packages\NUnit.3.10.1\build\NUnit.props')" />
   <Import Project="..\packages\MSTest.TestAdapter.1.1.17\build\net45\MSTest.TestAdapter.props" Condition="Exists('..\packages\MSTest.TestAdapter.1.1.17\build\net45\MSTest.TestAdapter.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -35,6 +36,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Castle.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <HintPath>..\packages\Castle.Core.4.3.0\lib\net45\Castle.Core.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.VisualStudio.TestPlatform.TestFramework">
       <HintPath>..\packages\MSTest.TestFramework.1.1.17\lib\net45\Microsoft.VisualStudio.TestPlatform.TestFramework.dll</HintPath>
@@ -42,11 +46,23 @@
     <Reference Include="Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions">
       <HintPath>..\packages\MSTest.TestFramework.1.1.17\lib\net45\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll</HintPath>
     </Reference>
+    <Reference Include="Moq, Version=4.8.0.0, Culture=neutral, PublicKeyToken=69f491c39445e920, processorArchitecture=MSIL">
+      <HintPath>..\packages\Moq.4.8.3\lib\net45\Moq.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.framework, Version=3.10.1.0, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
+      <HintPath>..\packages\NUnit.3.10.1\lib\net45\nunit.framework.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.1.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.3.0\lib\portable-net45+win8+wp8+wpa81\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ValueTuple, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.4.0\lib\netstandard1.0\System.ValueTuple.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web" />
     <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.Web.Extensions" />
@@ -89,6 +105,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DesignPatterns\BridgePatternTest.cs" />
+    <Compile Include="DesignPatterns\BuilderPatternTests.cs" />
+    <Compile Include="DesignPatterns\ChainResponsibilityPatternTest.cs" />
+    <Compile Include="DesignPatterns\CommandPatternTests.cs" />
+    <Compile Include="DesignPatterns\FacadePatternTests.cs" />
+    <Compile Include="DesignPatterns\ObjectPoolTests.cs" />
+    <Compile Include="DesignPatterns\ProxyPatternTest.cs" />
+    <Compile Include="DesignPatterns\StatePatternTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Controllers\HomeControllerTest.cs" />
   </ItemGroup>
@@ -99,6 +123,38 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\BridgePattern\BridgePattern.csproj">
+      <Project>{f84713d2-7698-48e2-a29b-e61d6c5737ed}</Project>
+      <Name>BridgePattern</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BuilderPattern\BuilderPattern.csproj">
+      <Project>{54f74a37-318c-4e39-b27c-0ee4ebe7afa8}</Project>
+      <Name>BuilderPattern</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ChainResponsibilityPattern\ChainResponsibilityPattern.csproj">
+      <Project>{0dfe99d9-fd5b-4d46-a46e-7fc65dc65b4b}</Project>
+      <Name>ChainResponsibilityPattern</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CommandPatern\CommandPatern.csproj">
+      <Project>{2d5c7c68-cc28-4f3a-946c-414656cec847}</Project>
+      <Name>CommandPatern</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FacadePattern\FacadePattern.csproj">
+      <Project>{b5141002-2122-4359-b1fb-3ab8cf24b5a3}</Project>
+      <Name>FacadePattern</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ObjectPool\ObjectPool.csproj">
+      <Project>{07e21858-81ba-4b79-8ac5-13f4d18a53b6}</Project>
+      <Name>ObjectPool</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ProxyPattern\ProxyPattern.csproj">
+      <Project>{4598b3e1-fa3f-4be7-b28a-5997a91ec5ad}</Project>
+      <Name>ProxyPattern</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\StatePattern\StatePattern.csproj">
+      <Project>{4d141f1c-5298-47be-a108-2a01ede08d8b}</Project>
+      <Name>StatePattern</Name>
+    </ProjectReference>
     <ProjectReference Include="..\StoreManagement\StoreManagement.csproj">
       <Project>{A694165D-10E1-48E0-9A59-32CB957D0DED}</Project>
       <Name>StoreManagement</Name>
@@ -111,6 +167,7 @@
     </PropertyGroup>
     <Error Condition="!Exists('..\packages\MSTest.TestAdapter.1.1.17\build\net45\MSTest.TestAdapter.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\MSTest.TestAdapter.1.1.17\build\net45\MSTest.TestAdapter.props'))" />
     <Error Condition="!Exists('..\packages\MSTest.TestAdapter.1.1.17\build\net45\MSTest.TestAdapter.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\MSTest.TestAdapter.1.1.17\build\net45\MSTest.TestAdapter.targets'))" />
+    <Error Condition="!Exists('..\packages\NUnit.3.10.1\build\NUnit.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\NUnit.3.10.1\build\NUnit.props'))" />
   </Target>
   <Import Project="..\packages\MSTest.TestAdapter.1.1.17\build\net45\MSTest.TestAdapter.targets" Condition="Exists('..\packages\MSTest.TestAdapter.1.1.17\build\net45\MSTest.TestAdapter.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
