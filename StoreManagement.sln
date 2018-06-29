@@ -29,6 +29,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ObjectPool", "ObjectPool\Ob
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiceLocatorPattern", "ServiceLocatorPattern\ServiceLocatorPattern.csproj", "{26369D8C-A39B-4CE0-8BC6-F2EE5DEC2B5D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StoreManagement.SPA", "StoreManagement.SPA\StoreManagement.SPA.csproj", "{18D03DAF-43A8-4FD4-A7E8-D304326B8EE0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -87,6 +89,10 @@ Global
 		{26369D8C-A39B-4CE0-8BC6-F2EE5DEC2B5D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{26369D8C-A39B-4CE0-8BC6-F2EE5DEC2B5D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{26369D8C-A39B-4CE0-8BC6-F2EE5DEC2B5D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{18D03DAF-43A8-4FD4-A7E8-D304326B8EE0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{18D03DAF-43A8-4FD4-A7E8-D304326B8EE0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{18D03DAF-43A8-4FD4-A7E8-D304326B8EE0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{18D03DAF-43A8-4FD4-A7E8-D304326B8EE0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
