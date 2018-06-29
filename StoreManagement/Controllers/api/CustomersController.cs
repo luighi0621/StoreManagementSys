@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Web.Http.Description;
 
 namespace StoreManagement.Controllers.api
 {
@@ -19,30 +20,53 @@ namespace StoreManagement.Controllers.api
         }
 
         // GET api/customers
-        public IEnumerable<Customer> Get()
+        [ResponseType(typeof(IEnumerable<Customer>))]
+        public HttpResponseMessage Get()
         {
-            return _cusRepo.GetAll();
+            return Request.CreateResponse(HttpStatusCode.OK, _cusRepo.GetAll());
         }
 
-        // GET api/<controller>/5
-        public string Get(int id)
+        // GET api/customers/5
+        [ResponseType(typeof(Customer))]
+        public HttpResponseMessage Get(int id)
         {
-            return "value";
+            Customer toFind = _cusRepo.Get(c => c.ID == id);
+            if(toFind == null)
+            {
+                return Request.CreateResponse(HttpStatusCode.NotFound, "Customer not found");
+            }
+            return Request.CreateResponse(HttpStatusCode.OK, toFind);
         }
 
-        // POST api/<controller>
-        public void Post([FromBody]string value)
+        // POST api/customers
+        public int Post([FromBody]Customer customer)
         {
+            if(customer != null){
+                _cusRepo.Create(customer);
+            }
+            return customer.ID;
         }
 
-        // PUT api/<controller>/5
-        public void Put(int id, [FromBody]string value)
+        // PUT api/customers/5
+        public void Put(int id, [FromBody]Customer cus)
         {
+            Customer cusToUpdate = _cusRepo.Get(c => c.ID == id);
+            if (cusToUpdate == null)
+            {
+                throw new HttpResponseException(Request.CreateErrorResponse(HttpStatusCode.NotModified, "Customer to update does not exits."));
+            }
+            _cusRepo.Update(cus);
         }
 
-        // DELETE api/<controller>/5
+        // DELETE api/customers/5
         public void Delete(int id)
         {
+            Customer cusToDelete = _cusRepo.Get(c => c.ID == id);
+            if(cusToDelete == null)
+            {
+                throw new HttpResponseException(Request.CreateErrorResponse(HttpStatusCode.NotFound, "Customer to delete does not exits."));
+            }
+            _cusRepo.Delete(cusToDelete);
         }
     }
 }
