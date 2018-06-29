@@ -118,6 +118,7 @@
     <Compile Include="DesignPatterns\FacadePatternTests.cs" />
     <Compile Include="DesignPatterns\ObjectPoolTests.cs" />
     <Compile Include="DesignPatterns\ProxyPatternTest.cs" />
+    <Compile Include="DesignPatterns\ServiceLocatorPatternTests.cs" />
     <Compile Include="DesignPatterns\StatePatternTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Controllers\HomeControllerTest.cs" />
@@ -156,6 +157,10 @@
     <ProjectReference Include="..\ProxyPattern\ProxyPattern.csproj">
       <Project>{4598b3e1-fa3f-4be7-b28a-5997a91ec5ad}</Project>
       <Name>ProxyPattern</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ServiceLocatorPattern\ServiceLocatorPattern.csproj">
+      <Project>{26369d8c-a39b-4ce0-8bc6-f2ee5dec2b5d}</Project>
+      <Name>ServiceLocatorPattern</Name>
     </ProjectReference>
     <ProjectReference Include="..\StatePattern\StatePattern.csproj">
       <Project>{4d141f1c-5298-47be-a108-2a01ede08d8b}</Project>

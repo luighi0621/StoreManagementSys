@@ -213,28 +213,23 @@ namespace StoreManagement.Tests.Controllers
         [TestCase(200)]
         public void Edit(int? id)
         {
-            // Arrange
             ProductsController controller = new ProductsController(_mockSupRepository.Object, _mockProdRepository.Object);
+            ActionResult result = controller.Edit(id) as ActionResult;
+
             if (id == null)
             {
-                // Act
-                ActionResult result = controller.Edit(id) as ActionResult;
                 int statusCode = ((HttpStatusCodeResult)result).StatusCode;
                 Assert.AreEqual((int)HttpStatusCode.BadRequest, statusCode);
                 Assert.AreEqual(typeof(HttpStatusCodeResult), result.GetType());
             }
             else
             {
-                // Act
-                ActionResult result = controller.Edit(id) as ActionResult;
-
                 if (id > _mockProdRepository.Object.Count())
                 {
                     Assert.AreEqual(typeof(HttpNotFoundResult), result.GetType());
                 }
                 else
                 {
-                    // Assert
                     Assert.IsNotNull(result);
                     Assert.AreEqual(typeof(Product), ((ViewResult)result).Model.GetType());
                 }
@@ -248,7 +243,6 @@ namespace StoreManagement.Tests.Controllers
             RedirectToRouteResult redirect = controller.DeleteConfirmed(1) as RedirectToRouteResult;
             Assert.IsNotNull(redirect);
             Assert.AreEqual("Index", redirect.RouteValues["action"]);
-
         }
     }
 }
