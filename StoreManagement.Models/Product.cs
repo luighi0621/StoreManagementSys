@@ -12,19 +12,27 @@ namespace StoreManagement.Models
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
+    using System.Runtime.Serialization;
 
+    [DataContract]
     public partial class Product
     {
+        [DataMember]
         public int Id { get; set; }
         [RegularExpression(@"^[A-Z]+[a-zA-Z""'\s-]*$")]
         [StringLength(20, MinimumLength = 3)]
         [Required]
+        [DataMember]
         public string Name { get; set; }
+        [DataMember]
         public string Description { get; set; }
+        [IgnoreDataMember]
         public byte[] Image { get; set; }
+        [DataMember]
         public string ProductCode { get; set; }
+        [IgnoreDataMember]
         public int IdSupplier { get; set; }
-    
+        [DataMember]
         public virtual Supplier Supplier { get; set; }
     }
 }

@@ -54,7 +54,7 @@ namespace StoreManagement.Dal
             {
                 try
                 {
-                    _Context.Products.Add(delete);
+                    _Context.Products.Remove(delete);
                     _Context.SaveChanges();
                 }
                 catch (Exception ex)
@@ -73,7 +73,7 @@ namespace StoreManagement.Dal
         {
             if (condition != null)
             {
-                var singleProd = _Context.Products.Where(condition).SingleOrDefault();
+                var singleProd = _Context.Products.Where(condition).Include(p=>p.Supplier).SingleOrDefault();
                 return singleProd;
             }
             return null;

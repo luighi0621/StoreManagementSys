@@ -12,7 +12,9 @@ namespace StoreManagement.Models
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
+    using System.Runtime.Serialization;
 
+    [DataContract]
     public partial class Supplier
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -20,13 +22,16 @@ namespace StoreManagement.Models
         {
             this.Products = new HashSet<Product>();
         }
-    
+        [DataMember]
         public int ID { get; set; }
         [RegularExpression(@"^[A-Z]+[a-zA-Z""'\s-]*$")]
         [StringLength(20, MinimumLength = 3)]
         [Required]
+        [DataMember]
         public string Name { get; set; }
+        [DataMember]
         public string Description { get; set; }
+        [DataMember]
         public string SupplierCode { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
