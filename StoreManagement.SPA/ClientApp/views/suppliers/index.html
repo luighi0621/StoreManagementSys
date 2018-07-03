@@ -1,0 +1,48 @@
+﻿<div ng-controller="supplierController">
+    <div class="form-horizontal">
+        <h4 class="container">Supplier</h4>
+        <hr />
+        <div class="form-group">
+            <label class="control-label col-md-2">Name:</label>
+            <div class="col-md-10">
+                <input type="text" class="form-control" ng-model="supplier.Name" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-2">Description:</label>
+            <div class="col-md-10">
+                <input type="text" class="form-control" ng-model="supplier.Description" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-2">SupplierCode:</label>
+            <div class="col-md-10">
+                <input type="text" class="form-control" ng-model="supplier.SupplierCode" />
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="button" value="Create" class="btn btn-success" ng-click="AddSupplier()" />
+                <input type="button" value="Update" class="btn btn-warning" ng-click="UpdateSupplier()" />
+                <input type="button" value="Clean" class="btn btn-info" ng-click="CleanModel()" />
+            </div>
+        </div>
+    </div>
+
+    <table class="table">
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>SupplierCode</th>
+            <th></th>
+        </tr>
+        <tr data-ng-repeat="sup in suppliers" ng-click="EditSupplier(sup)">
+            <td>{{ sup.Name }}</td>
+            <td>{{ sup.Description }}</td>
+            <td>{{ sup.SupplierCode }}</td>
+            <td>
+                <input type="button" value="Delete" class=" btn btn-danger" ng-click="DeleteSupplier(sup)" />
+            </td>
+        </tr>
+    </table>
+</div>

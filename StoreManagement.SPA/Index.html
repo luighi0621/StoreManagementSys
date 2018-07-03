@@ -1,6 +1,7 @@
 ﻿<!DOCTYPE html>
-<html>
+<html ng-app="StoreManagement">
 <head>
+    <base href="/" >
     <meta charset="utf-8" />
     <title>SPA Store Management</title>
     <link href="Content/bootstrap.css" rel="stylesheet" />
@@ -29,13 +30,17 @@
         </div>
         
     </div>
-    <div class="container body-content" ng-app="StoreManagement">
+    <div class="container body-content" ng-view>
+        
     </div>
-    <footer class="navbar navbar-fixed-bottom body-content">
+    <footer class="container navbar navbar-fixed-bottom body-content">
         <p>&copy; 2018 - My ASP.NET Application</p>
     </footer>  
     <script src="Scripts/jquery-3.0.0.js"></script>
     <script src="Scripts/bootstrap.js"></script>
     <script src="Scripts/angular.js"></script>
+    <script src="Scripts/angular-route.js"></script>
+    <script src="Scripts/angular-resource.js"></script>
+    <script src="ClientApp/app.js"></script>
 </body>
 </html>

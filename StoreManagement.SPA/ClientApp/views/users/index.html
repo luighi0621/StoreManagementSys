@@ -1,0 +1,56 @@
+﻿<div ng-controller="userController">
+    <div class="form-horizontal">
+        <h4 class="container">User</h4>
+        <hr />
+        <div class="form-group">
+            <label class="control-label col-md-2">FirstName:</label>
+            <div class="col-md-10">
+                <input type="text" class="form-control" ng-model="user.FirstName" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-2">LastName:</label>
+            <div class="col-md-10">
+                <input type="text" class="form-control" ng-model="user.LastName" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-2">Login:</label>
+            <div class="col-md-10">
+                <input type="text" class="form-control" ng-model="user.Login" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-2">AvatarImage:</label>
+            <div class="col-md-10">
+                <input type="text" class="form-control" ng-model="customer.AvatarImage" />
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="button" value="Create" class="btn btn-success" ng-click="AddUser()" />
+                <input type="button" value="Update" class="btn btn-warning" ng-click="UpdateUser()" />
+                <input type="button" value="Clean" class="btn btn-info" ng-click="CleanModel()" />
+            </div>
+        </div>
+    </div>
+
+    <table class="table">
+        <tr>
+            <th>FistName</th>
+            <th>LastName</th>
+            <th>Login</th>
+            <th>AvatarImage</th>
+            <th></th>
+        </tr>
+        <tr data-ng-repeat="us in users" ng-click="EditUser(us)">
+            <td>{{ us.FirstName }}</td>
+            <td>{{ us.LastName }}</td>
+            <td>{{ us.Login }}</td>
+            <td>{{ us.AvatarImage }}</td>
+            <td>
+                <input type="button" value="Delete" class=" btn btn-danger" ng-click="DeleteUser(us)" />
+            </td>
+        </tr>
+    </table>
+</div>
