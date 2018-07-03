@@ -1,7 +1,8 @@
-﻿var app = angular.module('StoreManagement', ['ngRoute', 'ngResource']);
-app.controller('customerController', ['$scope', 'CustomerService', function ($scope, CustomerService) {
+﻿var app = angular.module('StoreManagement', ['ngRoute', 'ngResource', 'ngDialog']);
+app.controller('customerController', ['$scope', 'CustomerService', 'ngDialog',
+    function ($scope, CustomerService, ngDialog) {
     $scope.customer = {
-        Id: 0,
+        ID: 0,
         Firstname: '',
         Lastname: '',
         Address: '',
@@ -12,47 +13,117 @@ app.controller('customerController', ['$scope', 'CustomerService', function ($sc
     $scope.customers = CustomerService.query();;
 
     $scope.AddCustomer = function () {
-        var _cus = {
-            Id: $scope.customers.length + 1,
-            FirstName: $scope.customer.Firstname,
-            LastName: $scope.customer.Lastname,
-            Address: $scope.customer.Address,
-            Email: $scope.customer.Email,
-            Phone: $scope.customer.Phone,
-            CustomerCode: $scope.customer.CustomerCode
-        };
-
-        $scope.customers.push(_cus);
-        ClearModel();
-    };
-
-    $scope.EditCustomer = function (cus) {
-        $scope.customer.Id = cus.Id;
-        $scope.customer.Firstname = cus.Firstname;
-        $scope.customer.Lastname = cus.Lastname;
-        $scope.customer.Address = cus.Address;
-        $scope.customer.Email = cus.Email;
-        $scope.customer.Phone = cus.Phone;
-        $scope.customer.CustomerCode = cus.CustomerCode;
-    };
-
-    $scope.UpdateCustomer = function () {
-        $.grep($scope.customers, function (e) {
-            if (e.Id == $scope.customer.Id) {
-                e.Firstname= $scope.customer.Firstname;
-                e.Lastname= $scope.customer.Lastname;
-                e.Address= $scope.customer.Address;
-                e.Email= $scope.customer.Email;
-                e.Phone= $scope.customer.Phone;
-                e.CustomerCode= $scope.customer.CustomerCode;
+        ngDialog.open({
+            template: 'clientApp/views/customers/customer_edit.html',
+            data: { customer: $scope.customer, edited: false }
+        }).closePromise.then(function (data) {
+            console.log(data)
+            if (data.value.value === true) {
+                console.log('create customer');
+                CreateCustomer(data.value.customer);
             }
         });
-        ClearModel();
+        //var _cus = {
+        //    Id: $scope.customers.length + 1,
+        //    FirstName: $scope.customer.Firstname,
+        //    LastName: $scope.customer.Lastname,
+        //    Address: $scope.customer.Address,
+        //    Email: $scope.customer.Email,
+        //    Phone: $scope.customer.Phone,
+        //    CustomerCode: $scope.customer.CustomerCode
+        //};
+
+        //$scope.customers.push(_cus);
+        //ClearModel();
     };
 
+    function CreateCustomer(customer) {
+        CustomerService.save(customer, function (success) {
+            $scope.customers.push(success)
+        }, function (error) {
+            console.log("error: " + error.message);
+        });
+    }
+
+    $scope.EditCustomer = function (cus) {
+        var oldCus = angular.copy(cus);
+        ngDialog.open({
+            template: 'clientApp/views/customers/customer_edit.html',
+            data: { customer: oldCus, edited: true }
+        }).closePromise.then(function (data) {
+            console.log(data)
+            if (data.value.value === true) {
+                console.log('edit customer');
+                UpdateCustomer(cus, data.value.customer)
+            }
+        });
+
+        //console.log(cus.ID);
+        //var customerGet = CustomerService.get({ id: cus.ID });
+        //console.log(customerGet);
+        //$scope.customer.Id = cus.Id;
+        //$scope.customer.Firstname = cus.Firstname;
+        //$scope.customer.Lastname = cus.Lastname;
+        //$scope.customer.Address = cus.Address;
+        //$scope.customer.Email = cus.Email;
+        //$scope.customer.Phone = cus.Phone;
+        //$scope.customer.CustomerCode = cus.CustomerCode;
+    };
+
+    $scope.GetCustomer = function (cus) {
+        console.log(cus);
+        ngDialog.open({
+            template: 'clientApp/views/customers/customer_detail.html',
+            data: { customer: cus, delete: false }
+        });
+    };
+
+    function UpdateCustomer(oldCus, cus) {
+        CustomerService.update({ id: cus.ID }, cus, function (success) {
+            UpdateTable(cus);
+        }, function (error) {
+            UpdateTable(oldCus);
+            console.log("error: " + error.message);
+        });
+    };
+
+    function UpdateTable(cus){
+        $.grep($scope.customers, function (cus) {
+            if (cus.ID == $scope.customer.ID) {
+                cus.Firstname = $scope.customer.Firstname;
+                cus.Lastname = $scope.customer.Lastname;
+                cus.Address = $scope.customer.Address;
+                cus.Email = $scope.customer.Email;
+                cus.Phone = $scope.customer.Phone;
+                cus.CustomerCode = $scope.customer.CustomerCode;
+            }
+        });
+}
+
+    //$scope.UpdateCustomer = function () {
+    //    $.grep($scope.customers, function (e) {
+    //        if (e.Id == $scope.customer.Id) {
+    //            e.Firstname = $scope.customer.Firstname;
+    //            e.Lastname = $scope.customer.Lastname;
+    //            e.Address = $scope.customer.Address;
+    //            e.Email = $scope.customer.Email;
+    //            e.Phone = $scope.customer.Phone;
+    //            e.CustomerCode = $scope.customer.CustomerCode;
+    //        }
+    //    });
+    //    ClearModel();
+    //};
+
     $scope.DeleteCustomer = function (cus) {
-        var _index = $scope.customers.indexOf(cus);
-        $scope.customers.splice(_index, 1);
+        ngDialog.open({
+            template: 'clientApp/views/customers/customer_detail.html',
+            data: { customer: cus, delete: true }
+        }).closePromise.then(function (data) {
+            if (data.value === true) {
+                DeleteConfirmed(cus);
+            }
+        });
+        
     };
 
     $scope.CleanModel = function () {
@@ -67,6 +138,14 @@ app.controller('customerController', ['$scope', 'CustomerService', function ($sc
         $scope.customer.Email = '';
         $scope.customer.Phone = '';
         $scope.customer.CustomerCode = '';
+    }
+    function DeleteConfirmed(cus) {
+        CustomerService.delete({ id: cus.ID }, function (success) {
+            var _index = $scope.customers.indexOf(cus);
+            $scope.customers.splice(_index, 1);
+        }, function (error) {
+            console.log("error: " + error.message);
+        });
     }
 }]);
 

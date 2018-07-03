@@ -41,12 +41,13 @@ namespace StoreManagement.Controllers.api
         }
 
         // POST api/customers
-        public int Post([FromBody]Customer customer)
+        [ResponseType(typeof(Customer))]
+        public HttpResponseMessage Post([FromBody]Customer customer)
         {
             if(customer != null){
                 _cusRepo.Create(customer);
             }
-            return customer.ID;
+            return Request.CreateResponse(HttpStatusCode.OK, customer);
         }
 
         // PUT api/customers/5

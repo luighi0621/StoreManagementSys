@@ -1,53 +1,7 @@
 ﻿<div ng-controller="customerController">
-    <h4 class="container">Customers</h4>
-    <hr />
+    <h2>Customers</h2>
     <input type="button" value="Create new" class="btn btn-success" ng-click="AddCustomer()" />
-    
-    <div class="form-horizontal">
-        <!--<div class="form-group">
-            <label class="control-label col-md-2">Firstname:</label>
-            <div class="col-md-10">
-                <input type="text" class="form-control" ng-model="customer.Firstname" />
-            </div>
-        </div>
-        <div class="form-group">
-            <label class="control-label col-md-2">Lastname:</label>
-            <div class="col-md-10">
-                <input type="text" class="form-control" ng-model="customer.Lastname" />
-            </div>
-        </div>
-        <div class="form-group">
-            <label class="control-label col-md-2">Address:</label>
-            <div class="col-md-10">
-                <input type="text" class="form-control" ng-model="customer.Address" />
-            </div>
-        </div>
-        <div class="form-group">
-            <label class="control-label col-md-2">Email:</label>
-            <div class="col-md-10">
-                <input type="text" class="form-control" ng-model="customer.Email" />
-            </div>
-        </div>
-        <div class="form-group">
-            <label class="control-label col-md-2">Phone:</label>
-            <div class="col-md-10">
-                <input type="text" class="form-control" ng-model="customer.Phone" />
-            </div>
-        </div>
-        <div class="form-group">
-            <label class="control-label col-md-2">CustomerCode:</label>
-            <div class="col-md-10">
-                <input type="text" class="form-control" ng-model="customer.CustomerCode" />
-            </div>
-        </div>-->
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <!--<input type="button" value="Update" class="btn btn-warning" ng-click="UpdateCustomer()" />
-                <input type="button" value="Clean" class="btn btn-info" ng-click="CleanModel()" />-->
-            </div>
-        </div>
-    </div>
-
+    <hr />
     <table class="table">
         <tr>
             <th>Fistname</th>
@@ -57,8 +11,10 @@
             <th>Phone</th>
             <th>CustomerCode</th>
             <th></th>
+            <th></th>
+            <th></th>
         </tr>
-        <tr data-ng-repeat="Cus in customers" ng-click="EditCustomer(Cus)">
+        <tr data-ng-repeat="Cus in customers">
             <td>{{ Cus.Firstname }}</td>
             <td>{{ Cus.Lastname }}</td>
             <td>{{ Cus.Address }}</td>

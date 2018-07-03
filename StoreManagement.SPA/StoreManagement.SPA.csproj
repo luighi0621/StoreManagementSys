@@ -71,6 +71,8 @@
     <None Include="packages.config" />
     <Content Include="ClientApp\app.js" />
     <Content Include="ClientApp\customersController.js" />
+    <Content Include="ClientApp\views\customers\customer_detail.html" />
+    <Content Include="ClientApp\views\customers\customer_edit.html" />
     <Content Include="ClientApp\views\customers\index.html" />
     <Content Include="ClientApp\views\home.html" />
     <Content Include="ClientApp\views\products\index.html" />
