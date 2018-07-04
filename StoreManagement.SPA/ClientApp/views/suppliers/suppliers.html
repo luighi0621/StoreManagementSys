@@ -1,32 +1,8 @@
 ﻿<div ng-controller="supplierController">
-    <div class="form-horizontal">
-        <h4 class="container">Supplier</h4>
-        <hr />
-        <div class="form-group">
-            <label class="control-label col-md-2">Name:</label>
-            <div class="col-md-10">
-                <input type="text" class="form-control" ng-model="supplier.Name" />
-            </div>
-        </div>
-        <div class="form-group">
-            <label class="control-label col-md-2">Description:</label>
-            <div class="col-md-10">
-                <input type="text" class="form-control" ng-model="supplier.Description" />
-            </div>
-        </div>
-        <div class="form-group">
-            <label class="control-label col-md-2">SupplierCode:</label>
-            <div class="col-md-10">
-                <input type="text" class="form-control" ng-model="supplier.SupplierCode" />
-            </div>
-        </div>
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="button" value="Create" class="btn btn-success" ng-click="AddSupplier()" />
-                <input type="button" value="Update" class="btn btn-warning" ng-click="UpdateSupplier()" />
-            </div>
-        </div>
-    </div>
+    <h2 class="container">Supplier</h2>
+    <hr />
+        
+    <input type="button" value="Create" class="btn btn-success" ng-click="AddSupplier()" />
 
     <table class="table">
         <tr>

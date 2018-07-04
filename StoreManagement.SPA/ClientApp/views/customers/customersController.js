@@ -1,6 +1,16 @@
 ﻿app.controller('customerController', ['$scope', 'CustomerService', 'ngDialog',
     function ($scope, CustomerService, ngDialog) {
 
+        $scope.customer = {
+            Id: 0,
+            Firstname: '',
+            Lastname: '',
+            Address: '',
+            Email: '',
+            Phone: '',
+            CustomerCode: ''
+        };
+
         $scope.customers = CustomerService.query();;
 
         $scope.AddCustomer = function () {

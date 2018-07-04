@@ -1,7 +1,13 @@
 ﻿app.controller('supplierController', ['$scope', 'SupplierService', 'ngDialog',
     function ($scope, SupplierService, ngDialog) {
-
         $scope.suppliers = SupplierService.query();
+
+        $scope.supplier = {
+            Id: 0,
+            Name: '',
+            Description: '',
+            SupplierCode: ''
+        };
 
         $scope.AddSupplier = function () {
             ngDialog.open({
@@ -33,25 +39,21 @@
 
         };
 
-    $scope.EditProduct = function (cus) {
-        $scope.supplier.Id = cus.Id;
-        $scope.supplier.Name = cus.Name;
-        $scope.supplier.Description = cus.Description;
-        $scope.supplier.SupplierCode = cus.SupplierCode;
-    };
-
-    $scope.UpdateProduct = function () {
-        $.grep($scope.customers, function (e) {
-            if (e.Id == $scope.supplier.Id) {
-                e.Name = $scope.supplier.Name;
-                e.Description = $scope.supplier.Description;
-                e.SupplierCode = $scope.supplier.SupplierCode;
-            }
-        });
-    };
+        $scope.EditSupplier = function (sup) {
+            var oldSup = angular.copy(sup);
+            ngDialog.open({
+                template: 'clientApp/views/suppliers/supplier_edit.html',
+                data: { supplier: oldSup, edited: true }
+            }).closePromise.then(function (data) {
+                if (data.value.value === true) {
+                    UpdateSupplier(sup, data.value.supplier)
+                }
+            });
+        };
 
         function CreateSupplier(supplier) {
-            CustomerService.save(supplier, function (success) {
+            SupplierService.save(supplier, function (success) {
+                console.log(success);
                 $scope.suppliers.push(success)
             }, function (error) {
                 console.log("error: " + error.message);
@@ -64,6 +66,25 @@
                 $scope.suppliers.splice(_index, 1);
             }, function (error) {
                 console.log("error: " + error.message);
+            });
+        }
+
+        function UpdateSupplier(oldSup, sup) {
+            SupplierService.update({ id: sup.ID }, sup, function (success) {
+                UpdateTable(sup);
+            }, function (error) {
+                UpdateTable(oldSup);
+                console.log("error: " + error.message);
+            });
+        }
+
+        function UpdateTable(sup) {
+            $.grep($scope.suppliers, function (e) {
+                if (e.ID == sup.ID) {
+                    e.Name = sup.Name;
+                    e.Description = sup.Description;
+                    e.SupplierCode = sup.SupplierCode;
+                }
             });
         }
 }]);
