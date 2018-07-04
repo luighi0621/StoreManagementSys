@@ -40,13 +40,14 @@ namespace StoreManagement.Controllers.api
         }
 
         // POST api/<controller>
-        public int Post([FromBody]Supplier supplier)
+        [ResponseType(typeof(Supplier))]
+        public HttpResponseMessage Post([FromBody]Supplier supplier)
         {
             if (supplier != null)
             {
                 _supRepository.Create(supplier);
             }
-            return supplier.ID;
+            return Request.CreateResponse(HttpStatusCode.OK, supplier);
         }
 
         // PUT api/<controller>/5
@@ -57,7 +58,13 @@ namespace StoreManagement.Controllers.api
             {
                 throw new HttpResponseException(Request.CreateErrorResponse(HttpStatusCode.NotModified, "Supplier to update does not exits."));
             }
-            _supRepository.Update(cus);
+
+            ToUpdate.ID = cus.ID;
+            ToUpdate.Name = cus.Name;
+            ToUpdate.Description = cus.Description;
+            ToUpdate.SupplierCode = cus.SupplierCode;
+
+            _supRepository.Update(ToUpdate);
         }
 
         // DELETE api/<controller>/5
