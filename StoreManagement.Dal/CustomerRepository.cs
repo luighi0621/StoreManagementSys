@@ -89,6 +89,7 @@ namespace StoreManagement.Dal
             {
                 try
                 {
+                    
                     _Context.Entry(update).State = System.Data.Entity.EntityState.Modified;
                     _Context.SaveChanges();
                 }

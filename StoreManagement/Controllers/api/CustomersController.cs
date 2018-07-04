@@ -51,14 +51,21 @@ namespace StoreManagement.Controllers.api
         }
 
         // PUT api/customers/5
-        public void Put(int id, [FromBody]Customer cus)
+        public void Put(int id, [FromBody]Customer update)
         {
             Customer cusToUpdate = _cusRepo.Get(c => c.ID == id);
             if (cusToUpdate == null)
             {
                 throw new HttpResponseException(Request.CreateErrorResponse(HttpStatusCode.NotModified, "Customer to update does not exits."));
             }
-            _cusRepo.Update(cus);
+            cusToUpdate.ID = update.ID;
+            cusToUpdate.Firstname = update.Firstname;
+            cusToUpdate.Lastname = update.Lastname;
+            cusToUpdate.Address = update.Address;
+            cusToUpdate.Email = update.Email;
+            cusToUpdate.Phone = update.Phone;
+            cusToUpdate.CustomerCode = update.CustomerCode;
+            _cusRepo.Update(cusToUpdate);
         }
 
         // DELETE api/customers/5
