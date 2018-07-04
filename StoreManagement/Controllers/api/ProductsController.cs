@@ -41,13 +41,16 @@ namespace StoreManagement.Controllers.api
         }
 
         // POST api/products
-        public int Post([FromBody]Product prod)
+        [ResponseType(typeof(Product))]
+        public HttpResponseMessage Post([FromBody]Product prod)
         {
             if (prod != null)
             {
+                prod.IdSupplier = prod.Supplier.ID;
+                prod.Supplier = null;
                 _prodRepo.Create(prod);
             }
-            return prod.Id;
+            return Request.CreateResponse(HttpStatusCode.OK, prod);
         }
 
         // PUT api/products/5
@@ -58,7 +61,13 @@ namespace StoreManagement.Controllers.api
             {
                 throw new HttpResponseException(Request.CreateErrorResponse(HttpStatusCode.NotModified, "Product to update does not exits."));
             }
-            _prodRepo.Update(cus);
+            ToUpdate.Id = cus.Id;
+            ToUpdate.Name = cus.Name;
+            ToUpdate.Description = cus.Description;
+            ToUpdate.Image = cus.Image;
+            ToUpdate.ProductCode = cus.ProductCode;
+            ToUpdate.IdSupplier = cus.Supplier.ID;
+            _prodRepo.Update(ToUpdate);
         }
 
         // DELETE api/products/5

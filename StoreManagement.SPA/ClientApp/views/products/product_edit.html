@@ -1,0 +1,45 @@
+﻿<h2 ng-hide="{{ngDialogData.edited}}">Create</h2>
+<h2 ng-show="{{ngDialogData.edited}}">Edit</h2>
+<div>
+    <div class="form-horizontal">
+        <div class="form-group">
+            <label class="control-label col-md-4">Name:</label>
+            <div class="col-md-7">
+                <input type="text" class="form-control" ng-model="ngDialogData.product.Name" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-4">Description:</label>
+            <div class="col-md-7">
+                <input type="text" class="form-control" ng-model="ngDialogData.product.Description" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-4">Image:</label>
+            <div class="col-md-7">
+                <input type="text" class="form-control" ng-model="ngDialogData.product.Image" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-4">ProductCode:</label>
+            <div class="col-md-7">
+                <input type="text" class="form-control" ng-model="ngDialogData.product.ProductCode" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-4">Supplier:</label>
+            <div class="col-md-7">
+                <!--<input type="text" class="form-control" ng-model="ngDialogData.product.Supplier" />-->
+                <select class="form-control" ng-model="ngDialogData.supplier">
+                    <option value="{{sup}}" ng-repeat="sup in ngDialogData.suppliers" > {{sup.Name}}</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="button" value="Create" ng-hide="ngDialogData.edited" class="btn btn-success" ng-click="closeThisDialog({value: true, product: ngDialogData.product, supplier: ngDialogData.supplier})" />
+                <input type="button" value="Update" ng-show="ngDialogData.edited" class="btn btn-warning" ng-click="closeThisDialog({value: true, product: ngDialogData.product, supplier: ngDialogData.supplier})" />
+            </div>
+        </div>
+    </div>
+</div>

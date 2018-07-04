@@ -7,7 +7,7 @@ app.config(function ($routeProvider, $locationProvider) {
         })
         .when('/Products', {
             controller: 'productController',
-            templateUrl: 'ClientApp/views/products/index.html'
+            templateUrl: 'ClientApp/views/products/products.html'
         })
         .when('/Suppliers', {
             controller: 'supplierController',

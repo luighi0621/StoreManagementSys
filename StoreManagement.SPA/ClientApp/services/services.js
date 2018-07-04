@@ -13,3 +13,11 @@ app.factory('SupplierService', function ($resource) {
         }
     })
 });
+
+app.factory('ProductService', function ($resource) {
+    return $resource('http://localhost:57826/api/products/:id', { id: '@id' }, {
+        update: {
+            method: 'PUT'
+        }
+    })
+});

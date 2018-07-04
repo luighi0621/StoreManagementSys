@@ -77,8 +77,10 @@
     <Content Include="ClientApp\views\customers\customer_edit.html" />
     <Content Include="ClientApp\views\customers\customers.html" />
     <Content Include="ClientApp\views\home.html" />
-    <Content Include="ClientApp\views\products\index.html" />
+    <Content Include="ClientApp\views\products\products.html" />
     <Content Include="ClientApp\views\products\productController.js" />
+    <Content Include="ClientApp\views\products\product_detail.html" />
+    <Content Include="ClientApp\views\products\product_edit.html" />
     <Content Include="ClientApp\views\reports\list.html" />
     <Content Include="ClientApp\views\suppliers\suppliers.html" />
     <Content Include="ClientApp\views\suppliers\supplierController.js" />

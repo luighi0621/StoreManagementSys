@@ -1,7 +1,9 @@
 ﻿<div ng-controller="productController">
-    <div class="form-horizontal">
-        <h4 class="container">Product</h4>
-        <hr />
+    <h2 class="container">Product</h2>
+    <hr />
+    <input type="button" value="Create" class="btn btn-success" ng-click="AddProduct()" />
+    <!--<div class="form-horizontal">
+        
         <div class="form-group">
             <label class="control-label col-md-2">Name:</label>
             <div class="col-md-10">
@@ -34,28 +36,34 @@
         </div>
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="button" value="Create" class="btn btn-success" ng-click="AddProduct()" />
-                <input type="button" value="Update" class="btn btn-warning" ng-click="UpdateProduct()" />
-                <input type="button" value="Clean" class="btn btn-info" ng-click="CleanModel()" />
+                
             </div>
         </div>
-    </div>
+    </div>-->
 
     <table class="table">
         <tr>
             <th>Name</th>
             <th>Description</th>
             <th>Image</th>
-            <th>ProductoCode</th>
+            <th>ProductCode</th>
             <th>Supplier</th>
             <th></th>
+            <th></th>
+            <th></th>
         </tr>
-        <tr data-ng-repeat="pro in products" ng-click="EditProduct(pro)">
+        <tr data-ng-repeat="pro in products">
             <td>{{ pro.Name }}</td>
             <td>{{ pro.Description }}</td>
             <td>{{ pro.Image }}</td>
-            <td>{{ pro.ProducCode }}</td>
-            <td>{{ pro.Supplier }}</td>
+            <td>{{ pro.ProductCode }}</td>
+            <td>{{ pro.Supplier.Name }}</td>
+            <td>
+                <input type="button" value="Edit" class=" btn btn-warning" ng-click="EditProduct(pro)" />
+            </td>
+            <td>
+                <input type="button" value="Details" class=" btn btn-info" ng-click="GetProduct(pro)" />
+            </td>
             <td>
                 <input type="button" value="Delete" class=" btn btn-danger" ng-click="DeleteProduct(pro)" />
             </td>
