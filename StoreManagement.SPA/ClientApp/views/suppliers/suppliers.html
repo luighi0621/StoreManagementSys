@@ -24,7 +24,6 @@
             <div class="col-md-offset-2 col-md-10">
                 <input type="button" value="Create" class="btn btn-success" ng-click="AddSupplier()" />
                 <input type="button" value="Update" class="btn btn-warning" ng-click="UpdateSupplier()" />
-                <input type="button" value="Clean" class="btn btn-info" ng-click="CleanModel()" />
             </div>
         </div>
     </div>
@@ -35,11 +34,19 @@
             <th>Description</th>
             <th>SupplierCode</th>
             <th></th>
+            <th></th>
+            <th></th>
         </tr>
-        <tr data-ng-repeat="sup in suppliers" ng-click="EditSupplier(sup)">
+        <tr data-ng-repeat="sup in suppliers">
             <td>{{ sup.Name }}</td>
             <td>{{ sup.Description }}</td>
             <td>{{ sup.SupplierCode }}</td>
+            <td>
+                <input type="button" value="Edit" class=" btn btn-warning" ng-click="EditSupplier(sup)" />
+            </td>
+            <td>
+                <input type="button" value="Details" class=" btn btn-info" ng-click="GetSupplier(sup)" />
+            </td>
             <td>
                 <input type="button" value="Delete" class=" btn btn-danger" ng-click="DeleteSupplier(sup)" />
             </td>

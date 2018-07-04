@@ -70,15 +70,22 @@
   <ItemGroup>
     <None Include="packages.config" />
     <Content Include="ClientApp\app.js" />
-    <Content Include="ClientApp\customersController.js" />
+    <Content Include="ClientApp\services\routes.js" />
+    <Content Include="ClientApp\services\services.js" />
+    <Content Include="ClientApp\views\customers\customersController.js" />
     <Content Include="ClientApp\views\customers\customer_detail.html" />
     <Content Include="ClientApp\views\customers\customer_edit.html" />
-    <Content Include="ClientApp\views\customers\index.html" />
+    <Content Include="ClientApp\views\customers\customers.html" />
     <Content Include="ClientApp\views\home.html" />
     <Content Include="ClientApp\views\products\index.html" />
+    <Content Include="ClientApp\views\products\productController.js" />
     <Content Include="ClientApp\views\reports\list.html" />
-    <Content Include="ClientApp\views\suppliers\index.html" />
+    <Content Include="ClientApp\views\suppliers\suppliers.html" />
+    <Content Include="ClientApp\views\suppliers\supplierController.js" />
+    <Content Include="ClientApp\views\suppliers\supplier_detail.html" />
+    <Content Include="ClientApp\views\suppliers\supplier_edit.html" />
     <Content Include="ClientApp\views\users\index.html" />
+    <Content Include="ClientApp\views\users\userController.js" />
     <Content Include="Content\ngDialog-theme-default.css" />
     <Content Include="Content\ngDialog.css" />
     <Content Include="Content\ngDialog.min.css" />

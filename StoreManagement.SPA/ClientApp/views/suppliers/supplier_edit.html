@@ -1,0 +1,30 @@
+﻿<h2 ng-hide="{{ngDialogData.edited}}">Create</h2>
+<h2 ng-show="{{ngDialogData.edited}}">Edit</h2>
+<div>
+    <div class="form-horizontal">
+        <div class="form-group">
+            <label class="control-label col-md-4">Name:</label>
+            <div class="col-md-7">
+                <input type="text" class="form-control" ng-model="ngDialogData.supplier.Name" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-4">Description:</label>
+            <div class="col-md-7">
+                <input type="text" class="form-control" ng-model="ngDialogData.supplier.Description" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-4">SupplierCode:</label>
+            <div class="col-md-7">
+                <input type="text" class="form-control" ng-model="ngDialogData.supplier.SupplierCode" />
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="button" value="Create" ng-hide="ngDialogData.edited" class="btn btn-success" ng-click="closeThisDialog({value: true, customer: ngDialogData.supplier})" />
+                <input type="button" value="Update" ng-show="ngDialogData.edited" class="btn btn-warning" ng-click="closeThisDialog({value: true, customer: ngDialogData.supplier})" />
+            </div>
+        </div>
+    </div>
+</div>
