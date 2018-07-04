@@ -233,6 +233,7 @@
     <Compile Include="Controllers\AccountsController.cs" />
     <Compile Include="Controllers\api\CustomersController.cs" />
     <Compile Include="Controllers\api\ProductsController.cs" />
+    <Compile Include="Controllers\api\ReportsController.cs" />
     <Compile Include="Controllers\api\SuppliersController.cs" />
     <Compile Include="Controllers\CustomersController.cs" />
     <Compile Include="Controllers\HomeController.cs" />

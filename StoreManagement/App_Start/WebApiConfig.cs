@@ -14,6 +14,12 @@ namespace StoreManagement
             config.EnableCors();
             config.MapHttpAttributeRoutes();
             config.Formatters.JsonFormatter.SupportedMediaTypes.Add(new System.Net.Http.Headers.MediaTypeHeaderValue("text/html"));
+
+            config.Routes.MapHttpRoute(
+               name: "ActionApi",
+               routeTemplate: "api/{controller}/{action}/{name}",
+               defaults: new { name = RouteParameter.Optional }
+            );
             config.Routes.MapHttpRoute(
                 name: "DefautAPI",
                 routeTemplate: "api/{controller}/{id}",
