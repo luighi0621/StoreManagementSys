@@ -91,11 +91,9 @@
     <Content Include="Content\ngDialog-theme-default.css" />
     <Content Include="Content\ngDialog.css" />
     <Content Include="Content\ngDialog.min.css" />
-    <Content Include="default.html" />
     <Content Include="Content\favicon.ico" />
     <Content Include="favicon.ico" />
-    <Content Include="Index.html" />
-    <Content Include="list.html" />
+    <Content Include="index.html" />
     <Content Include="Scripts\angular-resource.js" />
     <Content Include="Scripts\angular-resource.min.js" />
     <Content Include="Scripts\angular-route.js" />
