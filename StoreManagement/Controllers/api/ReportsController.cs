@@ -69,7 +69,7 @@ namespace StoreManagement.Controllers.api
         [HttpGet]
         public HttpResponseMessage UsersCustomers()
         {
-            string query = "select distinct u.Firstname, u.Lastname, u.Username, u.Email, u.PhoneNumber from [User] u" +
+            string query = "select distinct u.Firstname, u.Lastname, u.Login, u.Email, u.Phone from [User] u" +
                 " inner join [Customer] c on u.Firstname = c.Firstname " +
                 " inner join [Customer] cus on u.Lastname = cus.Lastname";
             DataTable data = _repository.ExecuteQuery(query);

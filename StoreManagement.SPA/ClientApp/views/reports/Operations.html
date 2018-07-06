@@ -1,0 +1,33 @@
+﻿<h2>Operations</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            Operation
+        </th>
+        <th>
+            Date
+        </th>
+        <th>
+            Table
+        </th>
+        <th>
+            Description
+        </th>
+    </tr>
+
+    <tr ng-repeat="report in ngDialogData.reports">
+        <td>
+            {{report.Operation1}}
+        </td>
+        <td>
+            {{report.Date}}
+        </td>
+        <td>
+            {{report.Table}}
+        </td>
+        <td>
+            {{report.Description}}
+        </td>
+    </tr>
+</table>

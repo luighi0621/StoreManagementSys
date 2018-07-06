@@ -17,6 +17,10 @@ app.config(function ($routeProvider, $locationProvider) {
             controller: 'userController',
             templateUrl: 'ClientApp/views/users/index.html'
         })
+        .when('/Reports', {
+            controller: 'reportController',
+            templateUrl: 'ClientApp/views/reports/reports.html'
+        })
         .when('/', {
             templateUrl: 'ClientApp/views/home.html'
         });

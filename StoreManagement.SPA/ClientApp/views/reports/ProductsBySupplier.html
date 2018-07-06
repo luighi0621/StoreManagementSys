@@ -1,0 +1,29 @@
+﻿<h2>Products By Supplier</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Supplier
+            </th>
+            <th>
+                Products
+            </th>
+        </tr>
+    </thead>
+    <tbody ng-repeat="(key, value) in ngDialogData.reports | groupBy: 'Name'">
+        <tr>
+            <td>
+                {{key}}
+            </td>
+            <td>
+                <table>
+                    <tr ng-repeat="pro in value">
+                        <td>
+                            {{pro.Name1}}
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </tbody>
+</table>

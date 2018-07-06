@@ -84,7 +84,7 @@
 
         function UpdateTable(cus) {
             $.grep($scope.customers, function (e) {
-                if (e.ID == cus.ID) {
+                if (e.ID === cus.ID) {
                     e.Firstname = cus.Firstname;
                     e.Lastname = cus.Lastname;
                     e.Address = cus.Address;

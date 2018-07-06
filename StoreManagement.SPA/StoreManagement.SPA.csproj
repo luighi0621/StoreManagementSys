@@ -81,7 +81,13 @@
     <Content Include="ClientApp\views\products\productController.js" />
     <Content Include="ClientApp\views\products\product_detail.html" />
     <Content Include="ClientApp\views\products\product_edit.html" />
-    <Content Include="ClientApp\views\reports\list.html" />
+    <Content Include="ClientApp\views\reports\CustomersAddress.html" />
+    <Content Include="ClientApp\views\reports\CustomersByLastname.html" />
+    <Content Include="ClientApp\views\reports\Operations.html" />
+    <Content Include="ClientApp\views\reports\ProductsBySupplier.html" />
+    <Content Include="ClientApp\views\reports\reportController.js" />
+    <Content Include="ClientApp\views\reports\reports.html" />
+    <Content Include="ClientApp\views\reports\UsersCustomers.html" />
     <Content Include="ClientApp\views\suppliers\suppliers.html" />
     <Content Include="ClientApp\views\suppliers\supplierController.js" />
     <Content Include="ClientApp\views\suppliers\supplier_detail.html" />

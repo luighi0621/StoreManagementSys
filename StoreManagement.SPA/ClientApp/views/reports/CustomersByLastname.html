@@ -1,0 +1,49 @@
+﻿<h2>Customers By Lastname</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Lastname
+            </th>
+            <th>
+                Name
+            </th>
+            <th>
+                Address
+            </th>
+            <th>
+                Email
+            </th>
+            <th>
+                Phone
+            </th>
+            <th>
+                Code
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="report in ngDialogData.reports">
+
+            <td>
+                {{report.Lastname}}
+            </td>
+            <td>
+                {{report.Firstname}}
+            </td>
+            <td>
+                {{report.Address}}
+            </td>
+            <td>
+                {{report.Email}}
+            </td>
+            <td>
+                {{report.Phone}}
+            </td>
+            <td>
+                {{report.CustomerCode}}
+            </td>
+        </tr>
+    </tbody>
+</table>

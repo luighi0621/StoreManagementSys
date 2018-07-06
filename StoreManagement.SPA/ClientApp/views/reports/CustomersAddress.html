@@ -1,0 +1,66 @@
+﻿<h2>Customers</h2>
+<div>
+    <div class="form-inline">
+        <div class="form-group">
+            <label class="control-label col-md-4">Address:</label>
+            
+        </div>
+        <div class="form-group">
+            <div class="col-md-7">
+                <input type="text" class="form-control" ng-model="search" />
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="button" value="Filter" class="btn btn-success" ng-click="LoadCustomersAddressWithAddress(search)" />
+            </div>
+        </div>
+    </div>
+</div>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Firstname
+            </th>
+            <th>
+                Lastname
+            </th>
+            <th>
+                Address
+            </th>
+            <th>
+                Email
+            </th>
+            <th>
+                Phone
+            </th>
+            <th>
+                Code
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="report in reportsQuery">
+
+            <td>
+                {{report.Firstname}}
+            </td>
+            <td>
+                {{report.Lastname}}
+            </td>
+            <td>
+                {{report.Address}}
+            </td>
+            <td>
+                {{report.Email}}
+            </td>
+            <td>
+                {{report.Phone}}
+            </td>
+            <td>
+                {{report.CustomerCode}}
+            </td>
+        </tr>
+    </tbody>
+</table>

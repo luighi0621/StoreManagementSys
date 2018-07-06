@@ -1,1 +1,1 @@
-﻿var app = angular.module('StoreManagement', ['ngRoute', 'ngResource', 'ngDialog']);
+﻿var app = angular.module('StoreManagement', ['ngRoute', 'ngResource', 'ngDialog', 'angular.filter']);

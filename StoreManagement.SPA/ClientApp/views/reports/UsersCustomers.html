@@ -1,0 +1,43 @@
+﻿<h2>Users and Customers with same name</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Firstname
+            </th>
+            <th>
+                Lastname
+            </th>
+            <th>
+                Login
+            </th>
+            <th>
+                Email
+            </th>
+            <th>
+                Phone
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="report in ngDialogData.reports">
+
+            <td>
+                {{report.Firstname}}
+            </td>
+            <td>
+                {{report.Lastname}}
+            </td>
+            <td>
+                {{report.Login}}
+            </td>
+            <td>
+                {{report.Email}}
+            </td>
+            <td>
+                {{report.Phone}}
+            </td>
+        </tr>
+    </tbody>
+</table>
