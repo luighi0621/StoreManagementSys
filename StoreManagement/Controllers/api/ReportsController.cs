@@ -7,10 +7,12 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Web.Http.Cors;
 using System.Web.Script.Serialization;
 
 namespace StoreManagement.Controllers.api
 {
+    [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class ReportsController : ApiController
     {
         private IOperationRepository _repository;
@@ -18,6 +20,17 @@ namespace StoreManagement.Controllers.api
         public ReportsController(IOperationRepository repo)
         {
             _repository = repo;
+        }
+
+        struct ActionReport
+        {
+            string Name;
+            string Link;
+            public ActionReport(string l, string n)
+            {
+                Name = n; 
+                Link = l;
+            }
         }
 
         // GET api/<controller>
@@ -31,7 +44,7 @@ namespace StoreManagement.Controllers.api
             actions["UsersCustomers"] = "Users and Customers with same name and lastname";
             actions["CustomersAddress"] = "Customers with Address";
             actions["Operations"] = "Operations report";
-            return Request.CreateResponse(HttpStatusCode.OK, actions);
+            return Request.CreateResponse(HttpStatusCode.OK, actions.ToArray());
         }
 
         [Route("api/reports/CustomersByLastname")]

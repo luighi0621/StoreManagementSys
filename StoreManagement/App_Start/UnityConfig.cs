@@ -48,7 +48,6 @@ namespace StoreManagement
             // Make sure to add a Unity.Configuration to the using statements.
             // container.LoadConfiguration();
 
-            // TODO: Register your type's mappings here.
             container.RegisterType<DbContext, UserDbContext>(new HierarchicalLifetimeManager());
             container.RegisterType<UserManager<ApplicationUser>>(new HierarchicalLifetimeManager());
             container.RegisterType<IUserStore<ApplicationUser>, UserStore<ApplicationUser>>(new HierarchicalLifetimeManager());

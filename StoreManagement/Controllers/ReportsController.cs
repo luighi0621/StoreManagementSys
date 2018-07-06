@@ -41,7 +41,8 @@ namespace StoreManagement.Controllers
 
         public ActionResult UsersCustomers()
         {
-            string query = "select distinct u.Firstname, u.Lastname, u.Username, u.Email, u.PhoneNumber from [User] u" +
+            //TODO: fix this, table user doesnt have some columns
+            string query = "select distinct u.Firstname, u.Lastname, u.Login, u.Email, u.Phone from [User] u" +
                 " inner join [Customer] c on u.Firstname = c.Firstname " +
                 " inner join [Customer] cus on u.Lastname = cus.Lastname";
             DataTable data = _operationRepository.ExecuteQuery(query);

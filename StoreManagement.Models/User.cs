@@ -23,6 +23,8 @@ namespace StoreManagement.Models
         [StringLength(20, MinimumLength = 3)]
         [Required]
         public string Login { get; set; }
+        public string Email { get; set; }
+        public string Phone { get; set; }
         public byte[] AvatarImage { get; set; }
     }
 }

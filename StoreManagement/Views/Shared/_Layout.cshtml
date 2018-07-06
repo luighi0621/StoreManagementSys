@@ -26,10 +26,10 @@
                     <li>@Html.ActionLink("Suppliers", "Index", "Suppliers")</li>
                     <li>@Html.ActionLink("Products", "Index", "Products")</li>
                     <li>@Html.ActionLink("Reports", "Index", "Reports")</li>
-                    @if (User.IsInRole("Administrators"))
-                    {
+                    @*@if (User.IsInRole("Administrators"))
+                    {*@
                     <li>@Html.ActionLink("Users", "Index", "Users")</li>
-                    }
+                    @*}*@
                 </ul>
                 }
                 @Html.Partial("_LoginPartial")
