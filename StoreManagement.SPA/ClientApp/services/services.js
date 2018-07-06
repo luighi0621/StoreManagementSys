@@ -1,69 +1,69 @@
-﻿app.factory('CustomerService', function ($resource) {
-    return $resource('http://localhost:57826/api/customers/:id', { id: '@id' }, {
+﻿app.factory('CustomerService', function ($resource, config) {
+    return $resource(config.url +'/api/customers/:id', { id: '@id' }, {
         update: {
             method: 'PUT'
         }
     });
 });
 
-app.factory('SupplierService', function ($resource) {
-    return $resource('http://localhost:57826/api/suppliers/:id', { id: '@id' }, {
+app.factory('SupplierService', function ($resource, config) {
+    return $resource(config.url +'/api/suppliers/:id', { id: '@id' }, {
         update: {
             method: 'PUT'
         }
     });
 });
 
-app.factory('ProductService', function ($resource) {
-    return $resource('http://localhost:57826/api/products/:id', { id: '@id' }, {
+app.factory('ProductService', function ($resource, config) {
+    return $resource(config.url +'/api/products/:id', { id: '@id' }, {
         update: {
             method: 'PUT'
         }
     });
 });
 
-app.factory('RepService', function ($resource) {
-    return $resource('http://localhost:57826/api/reports', { address: '@address' }, {
+app.factory('RepService', function ($resource, config) {
+    return $resource(config.url +'/api/reports', { address: '@address' }, {
         'getReports': {
-            url: 'http://localhost:57826/api/reports/',
+            url: config.url +'/api/reports/',
             method: 'GET',
             isArray: true
         },
         'getProductsBySupplier': {
-            url: 'http://localhost:57826/api/reports/ProductsBySupplier',
+            url: config.url +'/api/reports/ProductsBySupplier',
             method: 'GET',
             isArray: true
         },
         'getUsersCustomers': {
-            url: 'http://localhost:57826/api/reports/UsersCustomers',
+            url: config.url +'/api/reports/UsersCustomers',
             method: 'GeT',
             isArray: true
         },
         'getCustomersByLastname': {
-            url: 'http://localhost:57826/api/reports/CustomersByLastname',
+            url: config.url +'/api/reports/CustomersByLastname',
             method: 'GeT',
             isArray: true
         },
         'getCustomersAddress': {
-            url: 'http://localhost:57826/api/reports/CustomersAddress',
+            url: config.url +'/api/reports/CustomersAddress',
             method: 'GeT',
             isArray: true
         },
         'getCustomersAddressWithAddress': {
-            url: 'http://localhost:57826/api/reports/CustomersAddress/:address',
+            url: config.url +'/api/reports/CustomersAddress/:address',
             method: 'GeT',
             isArray: true
         },
         'getOperations': {
-            url: 'http://localhost:57826/api/reports/Operations',
+            url: config.url +'/api/reports/Operations',
             method: 'GeT',
             isArray: true
         }
     });
 });
 
-app.factory('ReportService', function ($http) {
-    var urlBalse = 'http://localhost:57826/api/reports';
+app.factory('ReportService', function ($http, config) {
+    var urlBalse = config + '/api/reports';
     var service = {};
 
     service.get = function () {
