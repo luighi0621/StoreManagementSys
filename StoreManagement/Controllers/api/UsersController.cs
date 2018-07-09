@@ -43,7 +43,7 @@ namespace StoreManagement.Controllers.api
         }
 
         // POST api/<controller>
-        [Route("api/users)]
+        [Route("api/users")]
         [ResponseType(typeof(User))]
         [HttpPost]
         public HttpResponseMessage Post([FromBody]User user)
