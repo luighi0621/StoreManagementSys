@@ -1,0 +1,35 @@
+﻿<div ng-controller="userController">
+    <h2 class="container">User</h2>
+    <hr />
+    <input type="button" value="Create" class="btn btn-success" ng-click="AddUser()" />
+
+    <table class="table">
+        <tr>
+            <th>FistName</th>
+            <th>LastName</th>
+            <th>Login</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <!--<th>AvatarImage</th>-->
+            <th></th>
+            <th></th>
+            <th></th>
+        </tr>
+        <tr data-ng-repeat="us in users">
+            <td>{{ us.Firstname }}</td>
+            <td>{{ us.Lastname }}</td>
+            <td>{{ us.Login }}</td>
+            <td>{{ us.Email }}</td>
+            <td>{{ us.Phone }}</td>
+            <td>
+                <input type="button" value="Edit" class=" btn btn-warning" ng-click="EditUser(us)" />
+            </td>
+            <td>
+                <input type="button" value="Details" class=" btn btn-info" ng-click="GetUser(us)" />
+            </td>
+            <td>
+                <input type="button" value="Delete" class=" btn btn-danger" ng-click="DeleteUser(us)" />
+            </td>
+        </tr>
+    </table>
+</div>

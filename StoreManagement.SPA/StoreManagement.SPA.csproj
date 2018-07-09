@@ -92,8 +92,10 @@
     <Content Include="ClientApp\views\suppliers\supplierController.js" />
     <Content Include="ClientApp\views\suppliers\supplier_detail.html" />
     <Content Include="ClientApp\views\suppliers\supplier_edit.html" />
-    <Content Include="ClientApp\views\users\index.html" />
+    <Content Include="ClientApp\views\users\users.html" />
     <Content Include="ClientApp\views\users\userController.js" />
+    <Content Include="ClientApp\views\users\user_detail.html" />
+    <Content Include="ClientApp\views\users\user_edit.html" />
     <Content Include="Content\ngDialog-theme-default.css" />
     <Content Include="Content\ngDialog.css" />
     <Content Include="Content\ngDialog.min.css" />

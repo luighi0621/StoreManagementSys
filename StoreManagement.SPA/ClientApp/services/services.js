@@ -22,6 +22,14 @@ app.factory('ProductService', function ($resource, config) {
     });
 });
 
+app.factory('UserService', function ($resource, config) {
+    return $resource(config.url + '/api/users/:id', { id: '@id' }, {
+        update: {
+            method: 'PUT'
+        }
+    });
+});
+
 app.factory('RepService', function ($resource, config) {
     return $resource(config.url +'/api/reports', { address: '@address' }, {
         'getReports': {
