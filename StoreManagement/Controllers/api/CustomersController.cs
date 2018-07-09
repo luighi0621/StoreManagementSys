@@ -22,6 +22,8 @@ namespace StoreManagement.Controllers.api
         }
 
         // GET api/customers
+        [Route("api/customers")]
+        [HttpGet]
         [ResponseType(typeof(IEnumerable<Customer>))]
         public HttpResponseMessage Get()
         {
@@ -29,6 +31,8 @@ namespace StoreManagement.Controllers.api
         }
 
         // GET api/customers/5
+        [Route("api/customers/{id}")]
+        [HttpGet]
         [ResponseType(typeof(Customer))]
         public HttpResponseMessage Get(int id)
         {
@@ -41,6 +45,8 @@ namespace StoreManagement.Controllers.api
         }
 
         // POST api/customers
+        [Route("api/customers")]
+        [HttpPost]
         [ResponseType(typeof(Customer))]
         public HttpResponseMessage Post([FromBody]Customer customer)
         {
@@ -51,6 +57,8 @@ namespace StoreManagement.Controllers.api
         }
 
         // PUT api/customers/5
+        [Route("api/customers/{id}")]
+        [HttpPut]
         public void Put(int id, [FromBody]Customer update)
         {
             Customer cusToUpdate = _cusRepo.Get(c => c.ID == id);
@@ -69,6 +77,8 @@ namespace StoreManagement.Controllers.api
         }
 
         // DELETE api/customers/5
+        [Route("api/customers/{id}")]
+        [HttpDelete]
         public void Delete(int id)
         {
             Customer cusToDelete = _cusRepo.Get(c => c.ID == id);

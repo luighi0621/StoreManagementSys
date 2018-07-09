@@ -22,6 +22,8 @@ namespace StoreManagement.Controllers.api
         }
 
         // GET api/products
+        [Route("api/products")]
+        [HttpGet]
         [ResponseType(typeof(IEnumerable<Product>))]
         public HttpResponseMessage Get()
         {
@@ -29,6 +31,8 @@ namespace StoreManagement.Controllers.api
         }
 
         // GET api/products/5
+        [Route("api/products/{id}")]
+        [HttpGet]
         [ResponseType(typeof(Product))]
         public HttpResponseMessage Get(int id)
         {
@@ -41,6 +45,8 @@ namespace StoreManagement.Controllers.api
         }
 
         // POST api/products
+        [Route("api/products")]
+        [HttpPost]
         [ResponseType(typeof(Product))]
         public HttpResponseMessage Post([FromBody]Product prod)
         {
@@ -54,6 +60,8 @@ namespace StoreManagement.Controllers.api
         }
 
         // PUT api/products/5
+        [Route("api/products/{id}")]
+        [HttpPut]
         public void Put(int id, [FromBody]Product cus)
         {
             Product ToUpdate = _prodRepo.Get(c => c.Id == id);
@@ -71,6 +79,8 @@ namespace StoreManagement.Controllers.api
         }
 
         // DELETE api/products/5
+        [Route("api/products/{id}")]
+        [HttpDelete]
         public void Delete(int id)
         {
             Product cusToDelete = _prodRepo.Get(c => c.Id == id);

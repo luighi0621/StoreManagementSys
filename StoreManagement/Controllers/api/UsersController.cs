@@ -20,14 +20,18 @@ namespace StoreManagement.Controllers.api
             _userRepository = repo;
         }
         // GET api/<controller>
+        [Route("api/users")]
         [ResponseType(typeof(IEnumerable<User>))]
+        [HttpGet]
         public HttpResponseMessage Get()
         {
             return Request.CreateResponse(HttpStatusCode.OK, _userRepository.GetAll());
         }
 
         // GET api/<controller>/5
+        [Route("api/users/{id}")]
         [ResponseType(typeof(User))]
+        [HttpGet]
         public HttpResponseMessage Get(int id)
         {
             User toFind = _userRepository.Get(c => c.ID == id);
@@ -39,7 +43,9 @@ namespace StoreManagement.Controllers.api
         }
 
         // POST api/<controller>
+        [Route("api/users)]
         [ResponseType(typeof(User))]
+        [HttpPost]
         public HttpResponseMessage Post([FromBody]User user)
         {
             if (user != null)
@@ -50,6 +56,8 @@ namespace StoreManagement.Controllers.api
         }
 
         // PUT api/<controller>/5
+        [Route("api/users/{id}")]
+        [HttpPut]
         public void Put(int id, [FromBody]User user)
         {
             User ToUpdate = _userRepository.Get(c => c.ID == id);
@@ -68,6 +76,8 @@ namespace StoreManagement.Controllers.api
         }
 
         // DELETE api/<controller>/5
+        [Route("api/users/{id}")]
+        [HttpDelete]
         public void Delete(int id)
         {
             User ToDelete = _userRepository.Get(c => c.ID == id);

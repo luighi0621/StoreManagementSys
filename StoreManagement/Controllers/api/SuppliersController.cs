@@ -21,6 +21,8 @@ namespace StoreManagement.Controllers.api
             _supRepository = suprepo;
         }
         // GET api/<controller>
+        [Route("api/suppliers")]
+        [HttpGet]
         [ResponseType(typeof(IEnumerable<Supplier>))]
         public HttpResponseMessage Get()
         {
@@ -28,6 +30,8 @@ namespace StoreManagement.Controllers.api
         }
 
         // GET api/<controller>/5
+        [Route("api/suppliers/{id}")]
+        [HttpGet]
         [ResponseType(typeof(Supplier))]
         public HttpResponseMessage Get(int id)
         {
@@ -40,6 +44,8 @@ namespace StoreManagement.Controllers.api
         }
 
         // POST api/<controller>
+        [Route("api/suppliers")]
+        [HttpPost]
         [ResponseType(typeof(Supplier))]
         public HttpResponseMessage Post([FromBody]Supplier supplier)
         {
@@ -51,6 +57,8 @@ namespace StoreManagement.Controllers.api
         }
 
         // PUT api/<controller>/5
+        [Route("api/suppliers/{id}")]
+        [HttpPut]
         public void Put(int id, [FromBody]Supplier cus)
         {
             Supplier ToUpdate = _supRepository.Get(c => c.ID == id);
@@ -68,6 +76,8 @@ namespace StoreManagement.Controllers.api
         }
 
         // DELETE api/<controller>/5
+        [Route("api/suppliers/{id}")]
+        [HttpDelete]
         public void Delete(int id)
         {
             Supplier cusToDelete = _supRepository.Get(c => c.ID == id);
