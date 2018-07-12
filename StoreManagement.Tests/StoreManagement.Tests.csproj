@@ -111,8 +111,18 @@
     <Compile Include="Dal\ProductRepositoryTests.cs" />
     <Compile Include="Dal\SupplierRepositoryTests.cs" />
     <Compile Include="Dal\UserRepositoryTests.cs" />
+    <Compile Include="DesignPatterns\BridgePatternTest.cs" />
+    <Compile Include="DesignPatterns\BuilderPatternTests.cs" />
+    <Compile Include="DesignPatterns\ChainResponsibilityPatternTest.cs" />
+    <Compile Include="DesignPatterns\CommandPatternTests.cs" />
+    <Compile Include="DesignPatterns\FacadePatternTests.cs" />
+    <Compile Include="DesignPatterns\ObjectPoolTests.cs" />
+    <Compile Include="DesignPatterns\ProxyPatternTest.cs" />
+    <Compile Include="DesignPatterns\ServiceLocatorPatternTests.cs" />
+    <Compile Include="DesignPatterns\StatePatternTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Controllers\HomeControllerTest.cs" />
+    <Compile Include="Refactoring\BadCodeTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App.config" />
@@ -121,6 +131,70 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\BadCodeSmells\BadCodeSmells.csproj">
+      <Project>{2147b6eb-52e2-4ce1-a617-e233e8fbf235}</Project>
+      <Name>BadCodeSmells</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DesignPatterns\AbstractFactory\AbstractFactory.csproj">
+      <Project>{073b0aa4-1e4b-4c2f-a833-748aef74b7eb}</Project>
+      <Name>AbstractFactory</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DesignPatterns\Adapter\Adapter.csproj">
+      <Project>{32be5eb4-aeba-41b2-ab29-1b7501aac72b}</Project>
+      <Name>Adapter</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DesignPatterns\BridgePattern\BridgePattern.csproj">
+      <Project>{f84713d2-7698-48e2-a29b-e61d6c5737ed}</Project>
+      <Name>BridgePattern</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DesignPatterns\BuilderPattern\BuilderPattern.csproj">
+      <Project>{54f74a37-318c-4e39-b27c-0ee4ebe7afa8}</Project>
+      <Name>BuilderPattern</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DesignPatterns\ChainResponsibilityPattern\ChainResponsibilityPattern.csproj">
+      <Project>{0dfe99d9-fd5b-4d46-a46e-7fc65dc65b4b}</Project>
+      <Name>ChainResponsibilityPattern</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DesignPatterns\CommandPatern\CommandPatern.csproj">
+      <Project>{2d5c7c68-cc28-4f3a-946c-414656cec847}</Project>
+      <Name>CommandPatern</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DesignPatterns\Decorator\Decorator.csproj">
+      <Project>{053fb82e-f13b-49db-83d7-20cfc084488a}</Project>
+      <Name>Decorator</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DesignPatterns\FacadePattern\FacadePattern.csproj">
+      <Project>{b5141002-2122-4359-b1fb-3ab8cf24b5a3}</Project>
+      <Name>FacadePattern</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DesignPatterns\ObjectPool\ObjectPool.csproj">
+      <Project>{07e21858-81ba-4b79-8ac5-13f4d18a53b6}</Project>
+      <Name>ObjectPool</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DesignPatterns\Prototype\Prototype.csproj">
+      <Project>{394bb11e-0296-4582-9ce4-335a846bb45c}</Project>
+      <Name>Prototype</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DesignPatterns\ProxyPattern\ProxyPattern.csproj">
+      <Project>{4598b3e1-fa3f-4be7-b28a-5997a91ec5ad}</Project>
+      <Name>ProxyPattern</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DesignPatterns\ServiceLocatorPattern\ServiceLocatorPattern.csproj">
+      <Project>{26369d8c-a39b-4ce0-8bc6-f2ee5dec2b5d}</Project>
+      <Name>ServiceLocatorPattern</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DesignPatterns\StatePattern\StatePattern.csproj">
+      <Project>{4d141f1c-5298-47be-a108-2a01ede08d8b}</Project>
+      <Name>StatePattern</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DesignPatterns\Strategy\Strategy.csproj">
+      <Project>{b469e9fa-e2a1-4b3c-b0e7-df8f5b7feffb}</Project>
+      <Name>Strategy</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DesignPatterns\TemplateMethod\TemplateMethod.csproj">
+      <Project>{954f149a-ac40-435b-bb74-3988443a93de}</Project>
+      <Name>TemplateMethod</Name>
+    </ProjectReference>
     <ProjectReference Include="..\StoreManagement.Dal\StoreManagement.Dal.csproj">
       <Project>{162e13f2-7182-45e0-a9c3-365379b00d90}</Project>
       <Name>StoreManagement.Dal</Name>
