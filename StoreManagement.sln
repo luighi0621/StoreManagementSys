@@ -13,6 +13,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StoreManagement.Models", "S
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StoreManagement.SPA", "StoreManagement.SPA\StoreManagement.SPA.csproj", "{18D03DAF-43A8-4FD4-A7E8-D304326B8EE0}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DesignPatterns", "DesignPatterns", "{12E23A45-B5C4-4010-AC09-FB3DFAB43DA1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Refactoring", "Refactoring", "{F8B213B9-AF9F-4F36-9118-42C5C740521F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BadCodeSmells", "BadCodeSmells\BadCodeSmells.csproj", "{2147B6EB-52E2-4CE1-A617-E233E8FBF235}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,9 +45,16 @@ Global
 		{18D03DAF-43A8-4FD4-A7E8-D304326B8EE0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{18D03DAF-43A8-4FD4-A7E8-D304326B8EE0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{18D03DAF-43A8-4FD4-A7E8-D304326B8EE0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2147B6EB-52E2-4CE1-A617-E233E8FBF235}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2147B6EB-52E2-4CE1-A617-E233E8FBF235}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2147B6EB-52E2-4CE1-A617-E233E8FBF235}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2147B6EB-52E2-4CE1-A617-E233E8FBF235}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{2147B6EB-52E2-4CE1-A617-E233E8FBF235} = {F8B213B9-AF9F-4F36-9118-42C5C740521F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A780802F-17F7-4D0B-9F7B-64E3530617D7}
