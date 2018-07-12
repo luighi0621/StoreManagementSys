@@ -131,7 +131,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\BadCodeSmells\BadCodeSmells.csproj">
+    <ProjectReference Include="..\Refactoring\BadCodeSmells\BadCodeSmells.csproj">
       <Project>{2147b6eb-52e2-4ce1-a617-e233e8fbf235}</Project>
       <Name>BadCodeSmells</Name>
     </ProjectReference>

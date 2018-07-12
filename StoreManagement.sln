@@ -17,7 +17,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DesignPatterns", "DesignPat
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Refactoring", "Refactoring", "{F8B213B9-AF9F-4F36-9118-42C5C740521F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BadCodeSmells", "BadCodeSmells\BadCodeSmells.csproj", "{2147B6EB-52E2-4CE1-A617-E233E8FBF235}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BadCodeSmells", "Refactoring\BadCodeSmells\BadCodeSmells.csproj", "{2147B6EB-52E2-4CE1-A617-E233E8FBF235}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BuilderPattern", "DesignPatterns\BuilderPattern\BuilderPattern.csproj", "{54F74A37-318C-4E39-B27C-0EE4EBE7AFA8}"
 EndProject
