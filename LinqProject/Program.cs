@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
@@ -73,6 +74,9 @@ namespace LinqProject
             // exercise 6
             Console.WriteLine("Exercise 6");
             string[] days = { "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday" };
+            List<string> asdasd = new List<string>();
+            //TODO: delete this
+            var testPag = asdasd.OrderBy(w => w).LastOrDefault(w => w.Contains("e"));
             var query6 = from day in days
                          select day;
 
@@ -164,18 +168,65 @@ namespace LinqProject
             //}
 
             // exercise 13
-            Console.WriteLine("Exercise 13");
-            Console.Write("Input number of strings to store in the array: ");
-            int arrayCap = int.Parse(Console.ReadLine());
-            string[] array13 = new string[arrayCap];
-            for (int i = 0; i < arrayCap; i++)
+            //Console.WriteLine("Exercise 13");
+            //Console.Write("Input number of strings to store in the array: ");
+            //int arrayCap = int.Parse(Console.ReadLine());
+            //string[] array13 = new string[arrayCap];
+            //for (int i = 0; i < arrayCap; i++)
+            //{
+            //    Console.WriteLine("Element[{0}]: ", i);
+            //    array13[i] = Console.ReadLine();
+            //}
+            //Console.WriteLine("Here is the string below created with elements of the above array: ");
+            //string joinString = string.Join(", ", array13.Select(s => s));
+            //Console.WriteLine(joinString);
+
+            // exercise 14
+            //Console.WriteLine("Exercise 14");
+            //Console.Write("Which maximum grade point(1st, 2nd, 3rd, ...) you want to find: ");
+            //int maxGrade = int.Parse(Console.ReadLine());
+            //Student s = new Student();
+            //var listStudents = s.GetStudents();
+            //var best = (from st in listStudents
+            //          group st by st.GrdPnt into grades
+            //          orderby grades.Key descending
+            //          select new { Students = grades.ToList() }).ToList();
+            //var accordingClient = best[maxGrade - 1];
+            //foreach (Student stdnt in accordingClient.Students)
+            //{
+            //    Console.WriteLine("Id: {0}, Name: {1}, achieved Grade Point: {2}", stdnt.ID, stdnt.Name, stdnt.GrdPnt);
+            //}
+
+            Console.WriteLine("\nExercise 15");
+            string[] extensionesArchivos = { "aaa.frx", "bbb.TXT", "xyz.dbf","abc.pdf", "aaaa.PDF", "xyz.frt", "abc.xml", "ccc.txt", "zzz.txt" };
+            var query15 = extensionesArchivos
+                            .Select(file => Path.GetExtension(file).ToLower())
+                            .GroupBy(ext => ext, (extension, total) => new { Extension = extension, Count = total.Count() });
+            Console.WriteLine("Here is the group of extension of the files: ");
+            foreach (var item in query15)
             {
-                Console.WriteLine("Element[{0}]: ", i);
-                array13[i] = Console.ReadLine();
+                Console.WriteLine("{0} File(s) with {1} Extension", item.Count, item.Extension);
             }
-            Console.WriteLine("Here is the string below created with elements of the above array: ");
-            string joinString = string.Join(", ", array13.Select(s => s));
-            Console.WriteLine(joinString);
+
+            Console.WriteLine("\nExercise 16");
+            string[] files = Directory.GetFiles(@"c:\Users\luis.choque\Documents\FilesTest\");
+            var query16 = files.Select(file => new FileInfo(file).Length).Average();
+            var InMB = Math.Round(query16 / 1000, 1);
+            Console.WriteLine("The Average file size is: {0} MB", InMB);
+
+            Console.WriteLine("\nExercise 17");
+            List<char> chars = new List<char>(){ 'm', 'n', 'o', 'p', 'q' };
+            chars.Remove(chars.FirstOrDefault(ch => ch =='o'));
+            foreach (var item in chars)
+            {
+                Console.WriteLine("Char: {0}", item.ToString());
+            }
+
+            List<string> asd = new List<string>(){ "This", "start", "is", "the", "end", "first", "test"};
+            foreach (var item in asd.SkipWhile(val => val != "start").TakeWhile(val => val != "end"))
+            {
+                Console.WriteLine(item);
+            }
             Console.ReadKey();
         }
     }
